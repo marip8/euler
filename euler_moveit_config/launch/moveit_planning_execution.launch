@@ -31,6 +31,7 @@
   <!--   - replace these calls with appropriate robot-specific calls or launch files -->
   <group unless="$(arg sim)">
     <include file="$(find motoman_mh5lf_support)/launch/robot_interface_streaming_mh5lf.launch" >
+      <arg name="version0" value="true"/>
       <arg name="robot_ip" value="$(arg robot_ip)"/>
       <arg name="controller" value="$(arg controller)"/>
     </include>
