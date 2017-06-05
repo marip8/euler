@@ -126,7 +126,8 @@
     <joint name="${prefix}frame_top" type="fixed">
       <parent link="${prefix}base_link"/>
       <child link="${prefix}frame_top"/>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
+<!--      <origin xyz="0 0 0" rpy="0 0 0"/>-->
+      <origin xyz="0 0 0.0922" rpy="0 0 0"/>
       <axis xyz="0 0 0"/>
     </joint>
     <joint name="${prefix}to_vetex" type="fixed">
@@ -138,8 +139,8 @@
     <joint name="${prefix}to_arm" type="fixed">
       <parent link="${prefix}base_link"/>
       <child link="${prefix}motoman_base_link"/>
-      <origin xyz="0.067518 0 2.016" rpy="3.1415 0 0"/>
-<!--      <origin xyz="0.067518 0 2.1082" rpy="3.1415 0 0"/>-->
+<!--      <origin xyz="0.067518 0 2.016" rpy="3.1415 0 0"/>-->
+      <origin xyz="0.067518 0 2.1082" rpy="3.1415 0 0"/>
       <axis xyz="0 0 0"/>
     </joint>
     <joint name="${prefix}sick_nav350" type="fixed">
@@ -174,7 +175,7 @@
     <joint name="${prefix}robot_base_to_lidar" type="fixed">
       <parent link="motoman_base_link"/>
       <child link="lidar_base_link"/>
-      <origin xyz="-0.52599 -0.0271642 1.52919" rpy="0.0216896 -3.085 -3.1031"/>
+      <origin xyz="-0.52801 -0.0266994 1.5131" rpy="3.13392 -0.0385118 -0.0314046"/>
     </joint>
 
   </xacro:macro>
