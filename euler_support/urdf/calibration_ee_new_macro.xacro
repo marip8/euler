@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:property name="r" value="${4.0*0.0254}"/>
+  <xacro:property name="r_h" value="${1.8125*0.0254}"/>
+  <xacro:property name="offset" value="${0.008 + 0.0254*sqrt((4.0**2.0)-(2.0**2.0))}"/>
+
+  <xacro:macro name="calibration_ee_new" params="prefix">
+
+    <link name="${prefix}base_link"/>
+
+    <link name="${prefix}tool0">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <sphere radius="${r}"/>
+        </geometry>
+        <material name="gray"/>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <sphere radius="${r}"/>
+        </geometry>
+        <material name="gray"/>
+      </collision>
+    </link>
+
+    <joint name="${prefix}joint_1" type="fixed">
+      <parent link="${prefix}base_link"/>
+      <child link="${prefix}tool0"/>
+      <origin xyz="0 0 ${offset}" rpy="0 0 0"/>
+    </joint>
+
+  </xacro:macro>
+</robot>
