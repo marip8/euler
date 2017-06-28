@@ -1,0 +1,1 @@
+rosrun moveit_kinematics create_ikfast_moveit_plugin.py euler manipulator euler_ikfast_plugin /home/mripperger/ros/a5_ws/src/euler/euler_ikfast_plugin/src/euler_manipulator_ikfast_solver.cpp

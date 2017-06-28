@@ -7,7 +7,22 @@
 
   <xacro:macro name="calibration_ee_new" params="prefix">
 
-    <link name="${prefix}base_link"/>
+    <link name="${prefix}base_link">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0.005"/>
+        <geometry>
+          <cylinder length="0.010" radius="${2.25 * 0.0254}"/>
+        </geometry>
+        <material name="gray"/>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0.005"/>
+        <geometry>
+          <cylinder length="0.010" radius="${2.25 * 0.0254}"/>
+        </geometry>
+        <material name="gray"/>
+      </collision>
+    </link>
 
     <link name="${prefix}tool0">
       <visual>

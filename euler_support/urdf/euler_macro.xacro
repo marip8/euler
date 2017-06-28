@@ -4,15 +4,14 @@
   <xacro:include filename="$(find motoman_mh5lf_support)/urdf/mh5lf_macro.xacro"/>
   <xacro:include filename="$(find euler_support)/urdf/calibration_ee_new_macro.xacro"/>
 <!--  <xacro:include filename="$(find flir_ptu_description)/urdf/d46.urdf.xacro"/>-->
-  <xacro:include filename="$(find localization_support)/urdf/articulated_lidar_macro.xacro"/>
-
+<!--  <xacro:include filename="$(find localization_support)/urdf/articulated_lidar_macro.xacro"/>-->
+  <xacro:include filename="$(find euler_support)/urdf/articulated_lidar_macro.xacro"/>
   <xacro:macro name="euler" params="prefix">
     <xacro:vetex prefix="vetex_"/>
     <xacro:motoman_mh5lf prefix="motoman_"/>
     <xacro:calibration_ee_new prefix="calibration_ee_"/>
     <xacro:articulated_lidar prefix="lidar_"/>
-
-    <!--link list -->
+    <!--Link List -->
     <link name="${prefix}base_link"/>
     <link name="${prefix}localization_frame"/>
     <link name="${prefix}frame_left">
@@ -111,6 +110,7 @@
         </geometry>
       </collision>
     </link>
+    <!-- Joint List -->
     <joint name="${prefix}frame_left" type="fixed">
       <parent link="${prefix}base_link"/>
       <child link="${prefix}frame_left"/>
@@ -175,8 +175,7 @@
     <joint name="${prefix}robot_base_to_lidar" type="fixed">
       <parent link="motoman_base_link"/>
       <child link="lidar_base_link"/>
-      <origin xyz="-0.563283 -0.0161269 1.45662" rpy="3.12079 -0.036878 -0.0260078"/>
+      <origin xyz="-0.705989 -0.0337057 1.50329" rpy="${pi} 0 0"/>
     </joint>
-
   </xacro:macro>
 </robot>  
