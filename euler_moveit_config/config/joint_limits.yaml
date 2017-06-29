@@ -4,31 +4,31 @@
 joint_limits:
   motoman_joint_b:
     has_velocity_limits: true
-    max_velocity: 7.85375
+    max_velocity: 7.85398163397
     has_acceleration_limits: false
     max_acceleration: 0
   motoman_joint_l:
     has_velocity_limits: true
-    max_velocity: 4.88677777777778
+    max_velocity: 4.88692190558
     has_acceleration_limits: false
     max_acceleration: 0
   motoman_joint_r:
     has_velocity_limits: true
-    max_velocity: 7.85375
+    max_velocity: 7.85398163397
     has_acceleration_limits: false
     max_acceleration: 0
   motoman_joint_s:
     has_velocity_limits: true
-    max_velocity: 4.71225
+    max_velocity: 4.71238898038
     has_acceleration_limits: false
     max_acceleration: 0
   motoman_joint_t:
     has_velocity_limits: true
-    max_velocity: 12.566
+    max_velocity: 12.5663706144
     has_acceleration_limits: false
     max_acceleration: 0
   motoman_joint_u:
     has_velocity_limits: true
-    max_velocity: 5.23583333333333
+    max_velocity: 5.23598775598
     has_acceleration_limits: false
     max_acceleration: 0

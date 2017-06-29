@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
   <xacro:include filename="$(find vetex_support)/urdf/vetex_macro.xacro"/>
-  <xacro:include filename="$(find motoman_mh5lf_support)/urdf/mh5lf_macro.xacro"/>
+  <xacro:include filename="$(find motoman_mh5lf_support)/urdf/mh5lf_macro_formatted.xacro"/>
   <xacro:include filename="$(find euler_support)/urdf/calibration_ee_new_macro.xacro"/>
 <!--  <xacro:include filename="$(find flir_ptu_description)/urdf/d46.urdf.xacro"/>-->
 <!--  <xacro:include filename="$(find localization_support)/urdf/articulated_lidar_macro.xacro"/>-->
@@ -168,14 +168,14 @@
       <axis xyz="0 0 0"/>
     </joint>
     <joint name="${prefix}motoman_link_t_to_eef_base" type="fixed">
-      <parent link="motoman_link_t"/>
+      <parent link="motoman_tool0"/>
       <child link="calibration_ee_base_link"/>
-      <origin xyz="0.098 0 0" rpy="0 ${pi/2.0} 0"/>
+      <origin xyz="0 0 0.004" rpy="0 0 0"/>
     </joint>
     <joint name="${prefix}robot_base_to_lidar" type="fixed">
       <parent link="motoman_base_link"/>
       <child link="lidar_base_link"/>
-      <origin xyz="-0.705989 -0.0337057 1.50329" rpy="${pi} 0 0"/>
+      <origin xyz="-0.735304 0.00733868 1.47808" rpy="3.13726 -0.0149178 -0.0126956"/>
     </joint>
   </xacro:macro>
 </robot>  

@@ -3,20 +3,22 @@
 
   <xacro:property name="r" value="${4.0*0.0254}"/>
   <xacro:property name="r_h" value="${1.8125*0.0254}"/>
-  <xacro:property name="offset" value="${0.008 + 0.0254*sqrt((4.0**2.0)-(2.0**2.0))}"/>
+<!--  <xacro:property name="offset" value="${0.008 + 0.0254*sqrt((4.0**2.0)-(2.0**2.0))}"/>-->
 
   <xacro:macro name="calibration_ee_new" params="prefix">
 
     <link name="${prefix}base_link">
       <visual>
-        <origin xyz="0 0 0" rpy="0 0 0.005"/>
+        <origin xyz="0 0 0.005" rpy="0 0 0"/>
         <geometry>
           <cylinder length="0.010" radius="${2.25 * 0.0254}"/>
         </geometry>
-        <material name="gray"/>
+        <material name="gray">
+          <color rgba="0.7 0.7 0.7 1"/>
+        </material>
       </visual>
       <collision>
-        <origin xyz="0 0 0" rpy="0 0 0.005"/>
+        <origin xyz="0 0 0.005" rpy="0 0 0"/>
         <geometry>
           <cylinder length="0.010" radius="${2.25 * 0.0254}"/>
         </geometry>
@@ -44,7 +46,7 @@
     <joint name="${prefix}joint_1" type="fixed">
       <parent link="${prefix}base_link"/>
       <child link="${prefix}tool0"/>
-      <origin xyz="0 0 ${offset}" rpy="0 0 0"/>
+      <origin xyz="0 0 0.095123" rpy="0 0 0"/>
     </joint>
 
   </xacro:macro>
