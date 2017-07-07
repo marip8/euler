@@ -175,7 +175,7 @@
     <joint name="${prefix}robot_base_to_lidar" type="fixed">
       <parent link="motoman_base_link"/>
       <child link="lidar_base_link"/>
-      <origin xyz="-0.735304 0.00733868 1.47808" rpy="3.13726 -0.0149178 -0.0126956"/>
+      <origin xyz="-0.742251 0.0124948 1.46814" rpy="3.13518 -0.00343246 -0.0091254"/>
     </joint>
   </xacro:macro>
 </robot>  
