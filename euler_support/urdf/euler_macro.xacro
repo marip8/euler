@@ -17,11 +17,11 @@
     <!--link list -->
     <link name="${prefix}base_link"/>
     <link name="${prefix}localization_frame"/>
-    <link name="${prefix}frame_left">
+    <link name="${prefix}frame">
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://euler_support/meshes/visual/frame_left.stl"/>
+          <mesh filename="package://euler_support/meshes/visual/frame.stl"/>
         </geometry>
         <material name="">
           <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1"/>
@@ -30,41 +30,7 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://euler_support/meshes/collision/frame_left.stl"/>
-        </geometry>
-      </collision>
-    </link>
-    <link name="${prefix}frame_right">
-      <visual>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <geometry>
-          <mesh filename="package://euler_support/meshes/visual/frame_right.stl"/>
-        </geometry>
-        <material name="">
-          <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1"/>
-        </material>
-      </visual>
-      <collision>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <geometry>
-          <mesh filename="package://euler_support/meshes/collision/frame_right.stl"/>
-        </geometry>
-      </collision>
-    </link>
-    <link name="${prefix}frame_top">
-      <visual>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <geometry>
-          <mesh filename="package://euler_support/meshes/visual/frame_top.stl"/>
-        </geometry>
-        <material name="">
-          <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1"/>
-        </material>
-      </visual>
-      <collision>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <geometry>
-          <mesh filename="package://euler_support/meshes/collision/frame_top.stl"/>
+          <mesh filename="package://euler_support/meshes/collision/frame.stl"/>
         </geometry>
       </collision>
     </link>
@@ -113,23 +79,9 @@
         </geometry>
       </collision>
     </link>
-    <joint name="${prefix}frame_left" type="fixed">
+    <joint name="${prefix}frame_to_platform" type="fixed">
       <parent link="${prefix}base_link"/>
-      <child link="${prefix}frame_left"/>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <axis xyz="0 0 0"/>
-    </joint>
-    <joint name="${prefix}frame_right" type="fixed">
-      <parent link="${prefix}base_link"/>
-      <child link="${prefix}frame_right"/>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <axis xyz="0 0 0"/>
-    </joint>
-    <joint name="${prefix}frame_top" type="fixed">
-      <parent link="${prefix}base_link"/>
-      <child link="${prefix}frame_top"/>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <axis xyz="0 0 0"/>
+      <child link="${prefix}frame"/>
     </joint>
     <joint name="${prefix}to_vetex" type="fixed">
       <parent link="${prefix}base_link"/>
