@@ -36,6 +36,7 @@
   <!--   - this typically includes: robot_state, motion_interface, and joint_trajectory_action nodes -->
   <!--   - replace these calls with appropriate robot-specific calls or launch files -->
   <group unless="$(arg sim)">
+    <remap from="joint_states" to="robot_joint_states"/>
     <include file="$(find motoman_driver)/launch/robot_interface_streaming_$(arg controller).launch">
       <arg name="robot_ip" value="$(arg robot_ip)" />
     </include>
@@ -43,6 +44,14 @@
 
   <!-- publish the robot state (tf transforms) -->
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <rosparam>
+      source_list: [/mutable_joint_states, /robot_joint_states]
+    </rosparam>
+  </node>
+  <node  name="mutable_joint_state_publisher" pkg="industrial_extrinsic_cal" type="mutable_joint_state_publisher" >
+    <param name="mutable_joint_state_yaml_file" value="$(find euler_support)/config/euler_mutable_joint_states.yaml" />
+  </node>
 
   <include file="$(find euler_moveit_config)/launch/move_group.launch">
     <arg name="publish_monitored_planning_scene" value="true" />
