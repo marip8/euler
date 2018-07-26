@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="use_camera" default="false"/>
+  <arg name="camera" if="$(arg use_camera)" default="asus"/>
+  <arg name="debug" default="true"/>
+  <arg name="sim" default="true"/>
+  <arg name="robot_ip" default="129.168.255.1" unless="$(arg sim)"/>
+
+  <node name="perception_node" pkg="euler_perception_demo" type="euler_perception_demo_node" output="screen">
+    <param name="cluster_tolerance" value="0.025"/>
+    <param name="plane_fit_tolerance" value="0.005"/>
+    <param name="z_offset" value="0.025"/>
+    <param name="min_cluster_size" value="100"/>
+    <param name="debug" value="$(arg debug)"/>
+  </node>
+
+  <node name="execution_node" pkg="euler_perception_demo" type="execution_node" output="screen">
+    <param name="planning_group" value="manipulator"/>
+  </node>
+
+  <include if="$(arg use_camera)" file="$(find euler_perception_demo)/launch/camera.launch">
+    <arg name="camera" value="$(arg camera)"/>
+  </include>
+
+  <include file="$(find euler_moveit_config)/launch/planning_and_execution.launch">
+    <arg name="sim" value="$(arg sim)"/>
+    <arg name="robot_ip" value="$(arg robot_ip)" unless="$(arg sim)"/>
+    <arg name="rviz" value="false"/>
+  </include>
+
+</launch>

@@ -1,0 +1,6 @@
+sensor_msgs/PointCloud2 cloud
+uint8 n_clusters
+---
+bool success
+string message
+geometry_msgs/PoseStamped pose
